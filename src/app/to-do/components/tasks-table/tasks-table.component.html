@@ -1,0 +1,47 @@
+<mat-form-field>
+  <input matInput type="text" (keyup)="filter($event)" placeholder="Filter by task">
+</mat-form-field>
+<mat-table [dataSource]="dataSource" matSort>
+  <ng-container matColumnDef="isChecked">
+    <mat-header-cell *matHeaderCellDef>
+      <mat-checkbox (change)="$event ? masterToggle() : null"
+                  [checked]="selection.hasValue() && isAllSelected()"
+                  [indeterminate]="selection.hasValue() && !isAllSelected()">
+      </mat-checkbox>
+    </mat-header-cell>
+    <mat-cell *matCellDef="let row">
+      <mat-checkbox (click)="$event.stopPropagation()"
+                    (change)="$event ? selection.toggle(row) : null"
+                    [checked]="selection.isSelected(row)">
+      </mat-checkbox>
+    </mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="name">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> Task </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="dueDate">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> Due date </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.dueDate | date}} </mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="isImportant">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> Importance </mat-header-cell>
+    <mat-cell *matCellDef="let element">
+      <button mat-icon-button (click)="toggleImportance(element)">
+        <mat-icon *ngIf="!element.isImportant">star</mat-icon>
+        <mat-icon *ngIf="element.isImportant">star_border</mat-icon>
+      </button>
+    </mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+          <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</mat-table>
+
+<mat-paginator
+    *ngIf="tasks.length > 5"
+    [pageSizeOptions]="[5, 10, 20]"
+    showFirstLastButtons>
+</mat-paginator>
+
+<button mat-button (click)="check()">Check</button>

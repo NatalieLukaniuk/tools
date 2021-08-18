@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12 about-me">
+      <div class="info d-flex flex-column align-items-center">
+        <img src="/assets/images/avatar.jpg" alt="Natalie Lukaniuk avatar">
+        <h1>Natalie Lukaniuk</h1>
+        <h2>Frontend developer</h2>
+      </div>
+      <mat-divider></mat-divider>
+      <div class="row">
+        <div class="col-12 contacts d-flex flex-column align-items-center">
+          <a href="tel:+380950500317">095-050-0317</a>
+          <a href="mailto:natalie.lukaniuk@gmail.com">natalie.lukaniuk@gmail.com</a>
+        </div>
+        <div class="col-12 col-md-4 offset-md-4 social d-flex justify-content-around">
+          <button mat-icon-button (click)="goSocialMedia('telegram')">
+            <svg-icon src="/assets/svg/telegram-ion.svg"></svg-icon>
+          </button>
+          <button mat-icon-button (click)="goSocialMedia('viber')">
+            <svg-icon src="/assets/svg/viber.svg"></svg-icon>
+          </button>
+          <button mat-icon-button (click)="goSocialMedia('skype')">
+            <svg-icon src="/assets/svg/skype.svg"></svg-icon>
+          </button>
+          <button mat-icon-button (click)="goSocialMedia('linkedin')">
+            <svg-icon src="/assets/svg/linkedin.svg"></svg-icon>
+          </button>
+          <button mat-icon-button (click)="goSocialMedia('github')">
+            <svg-icon src="/assets/svg/github.svg"></svg-icon>
+          </button>
+        </div>
+      </div>
+    </div>
+<!--    <div class="col-12 col-md-8 website-overview"></div>-->
+  </div>
+</div>

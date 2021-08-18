@@ -1,0 +1,16 @@
+<section class="container">
+  <div class="row">
+    <div class="col">
+      <mat-progress-spinner mode="determinate" [value]="progress"></mat-progress-spinner>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <p>{{progress}}%</p>
+      <button *ngIf="progress === 0" mat-raised-button (click)="start()">Start countdown</button>
+      <button *ngIf="progress > 0 && progress < 100" mat-raised-button (click)="stop()">Stop countdown</button>
+      <button *ngIf="progress >= 100" mat-raised-button (click)="restart()">Restart countdown</button>
+    </div>
+  </div>
+
+</section>

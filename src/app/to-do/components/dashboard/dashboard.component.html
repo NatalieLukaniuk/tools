@@ -1,0 +1,19 @@
+<mat-list *ngIf="isScreenWide">
+  <mat-list-item (click)="changeTab('Tasks to complete')">Tasks to complete</mat-list-item>
+  <mat-list-item (click)="changeTab('With due date')">With due date</mat-list-item>
+  <mat-list-item (click)="changeTab('Important')">Important</mat-list-item>
+  <mat-list-item *ngFor="let category of categories" (click)="changeTab(category)">{{category}}</mat-list-item>
+  <mat-list-item (click)="changeTab('Completed')">Completed</mat-list-item>
+  <mat-list-item (click)="changeTab('All tasks')">All tasks</mat-list-item>
+</mat-list>
+<mat-form-field *ngIf="!isScreenWide">
+  <mat-label>Tasks to display</mat-label>
+  <mat-select [(ngModel)]="currentTab" (ngModelChange)="tabChanged.emit(currentTab)">
+    <mat-option value="Tasks to complete">Tasks to complete</mat-option>
+    <mat-option value="With due date">With due date</mat-option>
+    <mat-option value="Important">Important</mat-option>
+    <mat-option *ngFor="let category of categories" [value]="category">{{category}}</mat-option>
+    <mat-option value="Completed">Completed</mat-option>
+    <mat-option value="All tasks">All tasks</mat-option>
+  </mat-select>
+</mat-form-field>

@@ -1,0 +1,31 @@
+<mat-tab-group>
+  <mat-tab label="JS">
+    <mat-tab-group>
+      <mat-tab label="Dom events"></mat-tab>
+    </mat-tab-group>
+  </mat-tab>
+  <mat-tab label="Css">
+    <mat-tab-group>
+      <mat-tab label="Font weights">
+        <mat-table [dataSource]="dataSource" matSort>
+          <ng-container matColumnDef="name">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Font name </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="value">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Value </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.value}} </mat-cell>
+          </ng-container>
+
+          <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row> 
+          <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+        </mat-table>
+      </mat-tab>
+      <mat-tab label="Selectors"></mat-tab>
+      <mat-tab label="Pseudoselectors"></mat-tab>
+      <mat-tab label="Selectors by attribute"></mat-tab>
+    </mat-tab-group>
+  </mat-tab>
+  <mat-tab label="Angular"></mat-tab>
+</mat-tab-group>

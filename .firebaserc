@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "natalie-app"
+  },
+  "targets": {
+    "natalie-app": {
+      "hosting": {
+        "app-website": [
+          "natalie-app"
+        ]
+      }
+    }
+  }
+}

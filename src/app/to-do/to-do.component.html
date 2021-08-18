@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12 col-md-3 dashboard">
+      <app-dashboard [categories]="categories" [currentTab]="currentTab" (tabChanged)="handleTabChange($event)"></app-dashboard>
+    </div>
+    <div class="col-12 col-md-9 presentation-area">
+      <div class="row" *ngIf="isScreenWide">
+        <div class="col-12 tab-title d-flex align-items-end justify-content-center">
+          <h1>{{currentTab}}</h1>
+        </div>
+        <div class="col-1 offset-11">
+          <button mat-icon-button>
+            <mat-icon>more_horiz</mat-icon>
+          </button>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <app-tasks-table [tasks]="tasksToDisplay"></app-tasks-table>
+          <!-- <app-task
+            *ngFor="let task of tasksToDisplay; index as i;"
+            [task]="task"
+          (taskChanged)="handleTaskChange($event, i)"></app-task> -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

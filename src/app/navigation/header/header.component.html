@@ -1,0 +1,18 @@
+<mat-toolbar color="primary">
+  <div>
+    <button *ngIf="!isScreenWide" mat-icon-button (click)="onSideNavToggle()"><mat-icon>menu</mat-icon></button>
+    <a routerLink="">Angular apps by Natalie Lukaniuk</a>
+  </div>
+  <ul *ngIf="isScreenWide" class="navigation">
+    <li *ngIf="!isAuthorized">
+      <a routerLink="login" routerLinkActive="active-link">Login</a>
+    </li>
+    <ng-container *ngFor="let item of nav">
+      <li *ngIf="isAuthorized || !item.authRequired">
+        <a [routerLink]="item.path" routerLinkActive="active-link">{{item.title}}</a></li>
+    </ng-container>
+    <li *ngIf="isAuthorized">
+      <button mat-button class="logout-btn" (click)="logout()">Logout</button>
+    </li>
+  </ul>
+</mat-toolbar>
