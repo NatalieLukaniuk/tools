@@ -9,6 +9,7 @@ import { SpinnerComponent } from './components/spinner/spinner.component';
 import { TestDialogComponent } from './components/test-dialog/test-dialog.component';
 import { RxjsComponent } from './components/rxjs/rxjs.component';
 import { DynamicHtmlComponent } from './components/dynamic-html/dynamic-html.component';
+import { CatsComponent } from './components/cats/cats.component';
 
 @NgModule({
   imports: [
@@ -24,6 +25,7 @@ import { DynamicHtmlComponent } from './components/dynamic-html/dynamic-html.com
     TestDialogComponent,
     RxjsComponent,
     DynamicHtmlComponent,
+    CatsComponent,
   ],
   entryComponents: [TestDialogComponent]
 })

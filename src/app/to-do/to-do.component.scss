@@ -4,3 +4,11 @@
     text-transform: uppercase;
   }
 }
+
+::ng-deep .loader{
+  position: absolute !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    top: 50%;
+    left: 50%;
+}

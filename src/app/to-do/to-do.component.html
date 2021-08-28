@@ -16,13 +16,17 @@
       </div>
       <div class="row">
         <div class="col">
-          <app-tasks-table [tasks]="tasksToDisplay"></app-tasks-table>
-          <!-- <app-task
-            *ngFor="let task of tasksToDisplay; index as i;"
-            [task]="task"
-          (taskChanged)="handleTaskChange($event, i)"></app-task> -->
+          <!-- <app-tasks-table [tasks]="tasksToDisplay" (onTasksDeleted)="onTaskDelete($event)"></app-tasks-table> -->
+          <div *ngFor="let task of tasksToDisplay">
+
+            <span>{{task.name}}</span>
+            <button mat-button>delete</button>
+            <span></span>
+          </div>
+          <button mat-button (click)="addEntities()">update</button>
         </div>
       </div>
     </div>
   </div>
 </div>
+<mat-spinner class="loader" *ngIf="loading$ | async"></mat-spinner>

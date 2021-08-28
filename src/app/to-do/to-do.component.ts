@@ -1,3 +1,4 @@
+import { ToDoService } from './services/todo.service';
 import { Observable } from 'rxjs';
 
 import { Component, OnInit } from '@angular/core';
@@ -14,30 +15,47 @@ export class ToDoComponent implements OnInit {
 
   isScreenWide: boolean | undefined;
 
-  fetchedTasks: Observable<Task[]>;
+  // fetchedTasks: Observable<Task[]>;
   allTasks: Task[];
   tasksToDisplay: Task[] = [];
   currentTab = 'Tasks to complete';
   categories: string[] = [];
   listHasChanged = false;
 
+  loading$: Observable<boolean>;
+  tasks$: Observable<Task[]>;
+
 
   constructor(private breakpointObserver: BreakpointObserver,
-              private db: AngularFirestore
-              ) { }
+              private db: AngularFirestore,
+              private toDoService: ToDoService
+              ) {
+                this.tasks$ = toDoService.entities$;
+                this.loading$ = toDoService.loading$;
+               }
 
   ngOnInit(): void {
     this.isScreenWide = this.breakpointObserver.isMatched('(min-width: 768px)');
-    this.getSavedList();
-  }
-
-  getSavedList(): void{
-    this.fetchedTasks = this.db.collection<Task>('mock-to-do').valueChanges();
-    this.fetchedTasks.subscribe(res => {
+    // this.getSavedList();
+    this.toDoService.getAll();
+    this.tasks$.subscribe(res => {
+      console.log(res);
       this.allTasks = res;
       this.updatePageStateOnListLoad();
     });
   }
+
+  onTaskDelete(tasks){
+this.toDoService.delete('sbrnyjbydtyh');
+  }
+
+  // getSavedList(): void{
+  //   this.fetchedTasks = this.db.collection<Task>('mock-to-do').valueChanges();
+  //   this.fetchedTasks.subscribe(res => {
+  //     this.allTasks = res;
+  //     this.updatePageStateOnListLoad();
+  //   });
+  // }
 
   updatePageStateOnListLoad(): void{
     this.updateTasksToDisplay(this.currentTab);
@@ -93,6 +111,28 @@ export class ToDoComponent implements OnInit {
   handleTabChange(event: string): void{
     this.currentTab = event;
     this.updateTasksToDisplay(event);
+  }
+
+  addEntities(){
+    const entities = [
+    {
+      id: 'strhgdr',
+      name: 'another',
+      dueDate: null,
+      isImportant: true,
+      isCompleted: false,
+      categories: ['tada'],
+    },
+    {
+      id: 'shgnxzgf',
+      name: 'anothotherer',
+      dueDate: null,
+      isImportant: true,
+      isCompleted: false,
+      categories: ['tada'],
+    }
+    ]
+    this.toDoService.addManyToCache(entities);
   }
 
 }

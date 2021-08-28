@@ -10,11 +10,14 @@ export class RxjsComponent implements OnInit {
 character = {
   name: 'James'
 };
+
+date: number;
 newCharacter = {};
   constructor() { }
 
   ngOnInit(): void {
     this.newCharacter = {...this.character, color: 'white'};
+    this.date = Date.now();
   }
 
 }

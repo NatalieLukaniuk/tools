@@ -1,0 +1,28 @@
+{
+  "tasks": [
+    {
+      "id": "sbrnyjbydtyh",
+      "name": "clean",
+      "dueDate": null,
+      "isImportant": false,
+      "isCompleted": false,
+      "categories": ["today", "tomorrow"]
+    },
+    {
+      "id": "eb5y56uyjft",
+      "name": "wash",
+      "dueDate": null,
+      "isImportant": false,
+      "isCompleted": false,
+      "categories": ["today", "tomorrow"]
+    },
+    {
+      "id": "g5yru7tuit7g",
+      "name": "push",
+      "dueDate": null,
+      "isImportant": false,
+      "isCompleted": false,
+      "categories": ["today", "tomorrow"]
+    }
+  ]
+}

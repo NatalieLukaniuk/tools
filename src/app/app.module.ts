@@ -30,6 +30,7 @@ import { reducers } from './store/app.reducer';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { EntityDataModule } from '@ngrx/data';
 import { entityConfig } from './entity-metadata';
+import { CatsEffects } from './playground/components/cats/store/cats.effects';
 
 
 @NgModule({
@@ -56,8 +57,8 @@ import { entityConfig } from './entity-metadata';
     HttpClientModule,
     TodoModule,
     AngularSvgIconModule.forRoot(),
-    StoreModule.forRoot(reducers, {}),
-    EffectsModule.forRoot([]),
+    StoreModule.forRoot(reducers),
+    EffectsModule.forRoot([CatsEffects]),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
     EntityDataModule.forRoot(entityConfig),
   ],

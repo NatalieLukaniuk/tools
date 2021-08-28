@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { select, Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
+import * as fromRoot from '../store/app.reducer';
 
 @Component({
   selector: 'app-playground',
@@ -6,10 +9,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./playground.component.scss']
 })
 export class PlaygroundComponent implements OnInit {
-
-  constructor() { }
+  isLoading$: Observable<boolean>;
+  constructor(private store: Store<fromRoot.State>) { }
 
   ngOnInit(): void {
+    this.isLoading$ = this.store.pipe(select(fromRoot.getIsLoading));
   }
 
 }

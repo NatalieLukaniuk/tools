@@ -1,9 +1,10 @@
-import { AfterViewInit, Component, Input, OnChanges, OnInit, SimpleChanges, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, Input, OnChanges, OnInit, Output, SimpleChanges, ViewChild, EventEmitter } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { Task } from '../../models/task';
 import { MatSort } from '@angular/material/sort';
 import { MatPaginator } from '@angular/material/paginator';
 import { SelectionModel } from '@angular/cdk/collections';
+import { Observable, of } from 'rxjs';
 
 @Component({
   selector: 'app-tasks-table',
@@ -17,6 +18,8 @@ export class TasksTableComponent implements OnInit, AfterViewInit, OnChanges {
   dataSource = new MatTableDataSource<Task>();
 @ViewChild(MatSort) sort: MatSort;
 @ViewChild(MatPaginator) paginator: MatPaginator;
+@Output() onTasksDeleted = new EventEmitter;
+selectedTasks: Observable<Task[]>;
 
 initialSelection = [];
 allowMultiSelect = true;
@@ -28,7 +31,6 @@ selection = new SelectionModel<Task>(this.allowMultiSelect, this.initialSelectio
   }
 
   ngOnInit(): void {
-
   }
 
   ngAfterViewInit(): void {
@@ -58,5 +60,9 @@ selection = new SelectionModel<Task>(this.allowMultiSelect, this.initialSelectio
 
   toggleImportance(task: Task): void{
     task.isImportant = !task.isImportant;
+  }
+
+  deleteTasks(){
+    this.onTasksDeleted.emit(this.selection.selected);
   }
 }
