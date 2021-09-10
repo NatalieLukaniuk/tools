@@ -7,19 +7,10 @@ import {MaterialModule} from '../material/material.module';
 
 import { ToDoComponent } from './to-do.component';
 import {DashboardComponent} from './components/dashboard/dashboard.component';
-import { TasksTableComponent } from './components/tasks-table/tasks-table.component';
-import { DefaultDataServiceConfig } from '@ngrx/data';
-
-const defaultDataServiceConfig: DefaultDataServiceConfig = {
-  root: 'http://localhost:3000',
-  timeout: 3000, // request timeout
-}
-
 @NgModule({
   declarations: [
     ToDoComponent,
-    DashboardComponent,
-    TasksTableComponent
+    DashboardComponent
   ],
   imports: [
     MaterialModule,
@@ -27,7 +18,7 @@ const defaultDataServiceConfig: DefaultDataServiceConfig = {
     BrowserAnimationsModule,
     FormsModule,
   ],
-  providers: [{ provide: DefaultDataServiceConfig, useValue: defaultDataServiceConfig }]
+  providers: []
 })
 
 export class TodoModule { }

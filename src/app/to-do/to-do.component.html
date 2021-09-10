@@ -16,14 +16,15 @@
       </div>
       <div class="row">
         <div class="col">
-          <!-- <app-tasks-table [tasks]="tasksToDisplay" (onTasksDeleted)="onTaskDelete($event)"></app-tasks-table> -->
-          <div *ngFor="let task of tasksToDisplay">
-
+          
+          <div *ngFor="let task of tasksToDisplay" class="d-flex">
             <span>{{task.name}}</span>
+            <span *ngIf="task.dueDate">{{task.dueDate}}</span>
+            <mat-chip *ngFor="let chip of task.categories">{{chip}}</mat-chip>
             <button mat-button>delete</button>
             <span></span>
           </div>
-          <button mat-button (click)="addEntities()">update</button>
+          <button mat-button (click)="test()">update</button>
         </div>
       </div>
     </div>

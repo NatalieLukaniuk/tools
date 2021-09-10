@@ -6,3 +6,4 @@ export interface Task {
   isCompleted: boolean;
   categories: string[];
 }
+
