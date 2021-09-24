@@ -31,13 +31,13 @@ cat: Cat = {
     this.catsService.getCatImage().subscribe(result => {
       this.cat.image = result[0].url;
       this.store.dispatch(new UI.StopLoading());
-       console.log(result);
+      //  console.log(result);
 
     });
     this.catsService.getCatText().subscribe(result => {
       this.cat.text = result.fact;
       this.store.dispatch(new UI.StopLoading());
-      console.log(result);
+      // console.log(result);
     });
 
   }

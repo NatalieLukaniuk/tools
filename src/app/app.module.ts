@@ -31,7 +31,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { EntityDataModule } from '@ngrx/data';
 import { entityConfig } from './entity-metadata';
 import { CatsEffects } from './playground/components/cats/store/cats.effects';
-
+import { ColorPickerModule } from '@syncfusion/ej2-angular-inputs';
 
 @NgModule({
   declarations: [
@@ -55,6 +55,7 @@ import { CatsEffects } from './playground/components/cats/store/cats.effects';
     FormsModule,
     PlaygroundModule,
     HttpClientModule,
+    ColorPickerModule,
     TodoModule,
     AngularSvgIconModule.forRoot(),
     StoreModule.forRoot(reducers),
@@ -64,7 +65,8 @@ import { CatsEffects } from './playground/components/cats/store/cats.effects';
   ],
   exports: [
     HttpClientModule,
-    AngularSvgIconModule
+    AngularSvgIconModule,
+    ColorPickerModule,
   ],
   providers: [AuthServiceService, CheatsheetsDataService],
   bootstrap: [AppComponent]

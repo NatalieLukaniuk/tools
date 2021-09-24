@@ -1,16 +1,222 @@
 <div class="container">
-  <div class="row">
-    <div class="col">1</div>
-    <div class="col">1</div>
-    <div class="col">1</div>
-    <div class="col">1</div>
-    <div class="col">1</div>
-    <div class="col">1</div>
-    <div class="col">1</div>
-    <div class="col">1</div>
-    <div class="col">1</div>
-    <div class="col">1</div>
-    <div class="col">1</div>
-    <div class="col">1</div>
+  <h1>hsl</h1>
+  <input ejs-colorpicker type="color" id="colorpicker" [(ngModel)]="incomingColor"><br>
+  <input [(ngModel)]="incomingColor">
+  <!-- <button mat-button (click)="test()">Check</button> -->
+<button mat-button (click)="calculate1(this.incomingColor)">Calculate</button>
+<h3>Palette</h3>
+
+
+<div class="palette">
+  <div class="wrapper d-flex" ngbTooltip="Primary color and hover color">
+    <!-- <div class="example">
+      <div>Hex: #378bf4</div>
+      <button mat-button [style.backgroundColor]="'#378bf4'">Save</button>
+    </div>
+    <div class="example">
+      <div>Selected color: {{palette1.incoming}}</div>    
+      <button mat-button class="primary">Save</button>
+    </div> -->
+    <div class="example">
+      <button class="btn-labeled btn-user-add">
+        <span>Add User</span>
+    </button>
+    </div>
   </div>
+
+  <div class="wrapper d-flex" ngbTooltip="User stories: tab with an underline; several buttons in visualizer">
+<!-- 
+    <div class="example">
+      <div>Hex: #0198e5</div>
+      <button mat-button [style.backgroundColor]="'#0198e5'">Save</button>
+    </div>
+    <div class="example">
+      <div>Selected color: {{palette1.activeBtn}}</div>
+      <button mat-button class="shade1">Save</button>    
+    </div> -->
+    <div class="example">
+      <button class="add-button">
+        Add story
+    </button>
+    </div>
+    <div class="example">
+      <mat-tab-group animationDuration="0ms">
+        <mat-tab>
+            <ng-template mat-tab-label>
+                <span class="tab-number">Active</span>
+            </ng-template>
+        </mat-tab>
+        <mat-tab>
+            <ng-template mat-tab-label>
+                <span class="tab-number">Archive</span>
+            </ng-template>
+        </mat-tab>
+    </mat-tab-group>
+    </div>
+  </div>
+
+  <div class="wrapper d-flex" ngbTooltip="User stories: disabled checkbox background">
+
+    <!-- <div class="example">
+      <div>Hex: #cceafa</div>
+      <button mat-button [style.backgroundColor]="'#cceafa'">Save</button>
+    </div>
+    <div class="example">
+      <div>Selected color: {{palette1.inactiveCheckbox}}</div>
+      <button mat-button class="shade2">Save</button>    
+    </div> -->
+    <div class="example">
+      <div class="d-flex flex-column filter-menu">
+        <div class="d-flex flex-column filter-options">
+        <mat-checkbox class="py-1 mt-1"
+        [indeterminate]="true"
+                      [disableRipple]="true">
+            <div class="text-muted">Select</div>
+        </mat-checkbox>
+        <mat-checkbox class="py-1 mt-1"
+        disabled
+        [checked]
+        [indeterminate]="true"
+                      [disableRipple]="true">
+            <div class="text-muted">Disabled Select</div>
+        </mat-checkbox>
+        <mat-checkbox class="py-1 mt-1"
+        [indeterminate]="true"
+                      [disableRipple]="true">
+            <div class="text-muted">Select</div>
+        </mat-checkbox>
+        <mat-checkbox class="py-1 mt-1"
+        [indeterminate]="true"
+                      [disableRipple]="true">
+            <div class="text-muted">Select</div>
+        </mat-checkbox>
+        <mat-checkbox class="py-1 mt-1"
+        disabled
+        [checked]
+        [indeterminate]="true"
+                      [disableRipple]="true">
+            <div class="text-muted">Disabled Select</div>
+        </mat-checkbox>
+        <mat-checkbox class="py-1 mt-1"
+        [indeterminate]="true"
+                      [disableRipple]="true">
+            <div class="text-muted">Select</div>
+        </mat-checkbox>
+      </div>
+      </div>
+      
+    </div>
+  </div>
+
+  <!-- <div class="wrapper d-flex" ngbTooltip="Hover on button">
+
+    <div class="example">
+      <div>Hex: #106ebe</div>
+      <button mat-button [style.backgroundColor]="'#106ebe'">Save</button>
+    </div>
+    <div class="example">
+      <div>Selected color: {{palette1.shade1}}</div>
+      <button mat-button class="shade3">Save</button>    
+    </div>
+    
+  </div> -->
+
+  <div class="wrapper d-flex" ngbTooltip="Link in admin">
+
+    <!-- <div class="example">
+      <div>Hex: #0d6efd</div>
+      <button mat-button [style.backgroundColor]="'#0d6efd'">Save</button>
+    </div>
+    <div class="example">
+      <div>Selected color: {{palette1.shade2}}</div>
+      <button mat-button class="shade4">Save</button>    
+    </div> -->
+
+    <div class="example">
+      <div class="form-group">
+        <label class="label-margin">Engagement link</label>
+        <a class="form-control-link" target="_blank" href="https://tada/clients/1">https://tada/clients/1</a>
+    </div>
+    </div>
+  </div>
+
+  <!-- <div class="wrapper d-flex" ngbTooltip="text color in sketcher\libs\controls\src\lib\shared-ui\shared-components\link">
+
+    <div class="example">
+      <div>Hex: #0098e5</div>
+      <button mat-button [style.backgroundColor]="'#0098e5'">Save</button>
+    </div>
+    <div class="example">
+      <div>Selected color: {{palette1.shade3}}</div>
+      <button mat-button class="shade5">Save</button>    
+    </div>
+  </div> -->
+
+  <div class="wrapper d-flex" ngbTooltip="border for blue button on hover in sketcher\libs\ui-components\src\lib\text-edit-popup\text-edit-popup.component">
+ 
+    <!-- <div class="example">
+      <div>Hex: #2c6fc3</div>
+      <button mat-button [style.backgroundColor]="'#2c6fc3'">Save</button>
+    </div>
+    <div class="example">
+      <div>Selected color: {{palette1.shade4}}</div>
+      <button mat-button class="shade6">Save</button>    
+    </div> -->
+    <div class="example">
+      <button
+        class="buttons button-confirm"
+        mat-button
+    >
+        Confirm
+    </button>
+    </div>
+  </div>
+
+  <div class="wrapper d-flex " ngbTooltip="button in sketcher\libs\sketcher-chart\ui\src\lib\components\ec-edit-toolbar">
+<!-- 
+    <div class="example">
+      <div>Hex: #3380e0</div>
+      <button mat-button [style.backgroundColor]="'#3380e0'">Save</button>
+    </div>
+    <div class="example">
+      <div>Selected color: {{palette1.shade5}}</div>
+      <button mat-button class="shade7">Save</button>    
+    </div> -->
+    <div class="example">
+      <button class="button button-submit" mat-button>
+        Apply
+    </button>
+    </div>
+  </div>
+
+  <!-- <div class="wrapper d-flex" ngbTooltip="mat-radio-inner-circle">
+  
+    <div class="example">
+      <div>Hex: #4286f4</div>
+      <button mat-button [style.backgroundColor]="'#4286f4'">Save</button>
+    </div>
+    <div class="example">
+      <div>Selected color: {{palette1.shade6}}</div>
+      <button mat-button class="shade8">Save</button>    
+    </div>
+  </div> -->
+
+  <div class="wrapper d-flex" ngbTooltip="hover on buttons with  current primary blue (#378BF4)">
+
+    <!-- <div class="example">
+      <div>Hex: #589df4</div>
+      <button mat-button [style.backgroundColor]="'#589df4'">Save</button>
+    </div>
+    <div class="example">
+      <div>Selected color: {{palette1.shade7}}</div>
+      <button mat-button class="shade9">Save</button>    
+    </div> -->
+    <div class="example">
+      <button class="apply-button">
+                Apply
+            </button>
+    </div>
+  </div>
+</div>
+
 </div>

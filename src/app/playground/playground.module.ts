@@ -10,12 +10,18 @@ import { TestDialogComponent } from './components/test-dialog/test-dialog.compon
 import { RxjsComponent } from './components/rxjs/rxjs.component';
 import { DynamicHtmlComponent } from './components/dynamic-html/dynamic-html.component';
 import { CatsComponent } from './components/cats/cats.component';
+import { FormsModule }   from '@angular/forms';
+
+
+
 
 @NgModule({
   imports: [
     BrowserModule,
     HttpClientModule,
     MaterialModule,
+    FormsModule,
+    
   ],
   declarations: [
     TestingComponent,
